@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rural Jobs Connect</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #2b7a78;
+      --accent: #3aafa9;
+      --bg: #f7f9fc;
+      --text: #333;
+      --highlight-bg: #def2f1;
+      --highlight-border: #3aafa9;
+    }
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Roboto', Arial, sans-serif;
+      font-size: 16px;
+      min-height: 100vh;
+    }
+    header {
+      background: var(--primary);
+      color: #fff;
+      text-align: center;
+      padding: 2.5rem 1rem 2rem 1rem;
+    }
+    header h1 {
+      margin: 0 0 0.5rem 0;
+      font-size: 2.2rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+    header p {
+      margin: 0;
+      font-size: 1.1rem;
+      font-weight: 400;
+      letter-spacing: 0.5px;
+    }
+    main {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 1.5rem 1rem 0 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 2.2rem;
+    }
+    section {
+      width: 100%;
+    }
+    .features {
+      background: #fff;
+      border-radius: 14px;
+      box-shadow: 0 2px 8px #e0e0e0;
+      padding: 1.5rem 1.2rem;
+    }
+    .features h2 {
+      color: var(--primary);
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+    .features ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 0.8rem;
+    }
+    .features li {
+      padding-left: 1.2em;
+      position: relative;
+      font-size: 1.05rem;
+      line-height: 1.5;
+    }
+    .features li::before {
+      content: '•';
+      color: var(--accent);
+      position: absolute;
+      left: 0;
+      font-size: 1.2em;
+      top: 0;
+    }
+    .use-cases {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+    .use-cases h2 {
+      color: var(--primary);
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+      font-weight: 700;
+    }
+    .use-case-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .use-case-card {
+      background: var(--highlight-bg);
+      border-left: 5px solid var(--highlight-border);
+      border-radius: 10px;
+      padding: 1rem 1rem 1rem 1.2rem;
+      font-size: 1.05rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.7em;
+      box-shadow: 0 1px 4px #e0e0e0;
+    }
+    .use-case-card span {
+      font-size: 1.5em;
+      margin-right: 0.5em;
+      flex-shrink: 0;
+    }
+    .innovation {
+      background: #fff;
+      border-radius: 12px;
+      padding: 1.2rem 1rem;
+      margin: 0 auto;
+      box-shadow: 0 2px 8px #e0e0e0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+    }
+    .innovation-title {
+      color: var(--primary);
+      font-weight: 700;
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+    }
+    .innovation-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+    }
+    .innovation-list span {
+      display: flex;
+      align-items: center;
+      gap: 0.5em;
+      font-size: 1.02rem;
+    }
+    .cta-section {
+      text-align: center;
+      margin: 0 auto;
+      padding: 2rem 0 1.5rem 0;
+    }
+    .cta-section h2 {
+      color: var(--primary);
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 0.7rem;
+    }
+    .cta-section p {
+      font-size: 1.08rem;
+      margin-bottom: 1.2rem;
+      color: var(--text);
+    }
+    .cta-btn {
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      border-radius: 30px;
+      padding: 0.85em 2.2em;
+      font-size: 1.1rem;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 2px 8px #b2dfdb;
+      transition: background 0.2s, transform 0.2s;
+      outline: none;
+      margin-top: 0.2em;
+    }
+    .cta-btn:hover,
+    .cta-btn:focus {
+      background: #249b92;
+      transform: translateY(-2px) scale(1.03);
+    }
+    footer {
+      background: #fff;
+      color: #888;
+      text-align: center;
+      font-size: 0.98rem;
+      padding: 1.1rem 0 0.7rem 0;
+      margin-top: 2rem;
+      border-top: 1px solid #e0e0e0;
+    }
+    /* Responsive Design */
+    @media (min-width: 600px) {
+      .use-case-cards {
+        flex-direction: row;
+      }
+      .use-case-card {
+        flex: 1 1 0;
+      }
+      main {
+        padding: 2.5rem 2rem 0 2rem;
+      }
+    }
+    @media (max-width: 480px) {
+      header h1 {
+        font-size: 1.4rem;
+      }
+      .features h2, .use-cases h2, .cta-section h2 {
+        font-size: 1.05rem;
+      }
+      .cta-btn {
+        font-size: 1rem;
+        padding: 0.7em 1.5em;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Rural Jobs Connect</h1>
+    <p>Bridging rural youth with job opportunities near and far</p>
+    <div class="header-actions">
+      <select class="lang-select" aria-label="Select Language" id="langSelect">
+        <option value="en">English</option>
+        <option value="hi">हिन्दी (Hindi)</option>
+        <option value="ta">தமிழ் (Tamil)</option>
+        <option value="bn">বাংলা (Bengali)</option>
+        <option value="mr">मराठी (Marathi)</option>
+        <option value="te">తెలుగు (Telugu)</option>
+      </select>
+  <script>
+    // Simple static translation for landing page only
+    const translations = {
+      en: {
+        title: "Rural Jobs Connect",
+        tagline: "Bridging rural youth with job opportunities near and far",
+        features: "🔹 Key Features",
+        feature1: "Regional Language Profiles: Hindi, Tamil, Bengali, Marathi, Telugu",
+        feature2: "Video Skill Showcase: Upload short skill demo video",
+        feature3: "Voice or Chat Messaging with employers",
+        feature4: "Local + Urban Job Integration (shops, farms, city jobs)",
+        usecases: "🧵 Example Use Cases",
+        savita: "Savita: Tailor from UP shows stitching video and gets hired",
+        ramesh: "Ramesh: Carpenter from Nagpur shares a chair-making video",
+        why: "Why Rural Jobs Connect?",
+        why1: "✅ Regional-language friendly",
+        why2: "✅ Video-based for low-literacy users",
+        why3: "✅ Focus on rural + semi-urban employment",
+        why4: "✅ No middlemen, no exploitation",
+        ctaTitle: "🎯 No Middlemen, No Exploitation",
+        ctaText: "Empowering rural workers to connect directly with employers.",
+        getStarted: "Get Started",
+        login: "Login",
+        signup: "Sign Up"
+      },
+      hi: {
+        title: "ग्रामीण नौकरियाँ कनेक्ट",
+        tagline: "ग्रामीण युवाओं को नौकरी के अवसरों से जोड़ना",
+        features: "🔹 मुख्य विशेषताएँ",
+        feature1: "क्षेत्रीय भाषा प्रोफाइल: हिंदी, तमिल, बंगाली, मराठी, तेलुगु",
+        feature2: "वीडियो कौशल प्रदर्शन: छोटा कौशल वीडियो अपलोड करें",
+        feature3: "नियोक्ताओं से वॉयस या चैट संदेश",
+        feature4: "स्थानीय + शहरी नौकरी एकीकरण (दुकानें, खेत, शहर की नौकरियाँ)",
+        usecases: "🧵 उदाहरण उपयोग केस",
+        savita: "सविता: यूपी की दर्जी ने सिलाई वीडियो दिखाया और नौकरी पाई",
+        ramesh: "रमेश: नागपुर के बढ़ई ने कुर्सी बनाना वीडियो साझा किया",
+        why: "क्यों ग्रामीण नौकरियाँ कनेक्ट?",
+        why1: "✅ क्षेत्रीय-भाषा अनुकूल",
+        why2: "✅ कम साक्षरता उपयोगकर्ताओं के लिए वीडियो आधारित",
+        why3: "✅ ग्रामीण + अर्ध-शहरी रोजगार पर ध्यान",
+        why4: "✅ कोई बिचौलिया नहीं, कोई शोषण नहीं",
+        ctaTitle: "🎯 कोई बिचौलिया नहीं, कोई शोषण नहीं",
+        ctaText: "ग्रामीण श्रमिकों को सीधे नियोक्ताओं से जोड़ना।",
+        getStarted: "शुरू करें",
+        login: "लॉगिन",
+        signup: "साइन अप"
+      },
+      ta: {
+        title: "கிராம வேலைகள் இணைப்பு",
+        tagline: "கிராமப்புற இளைஞர்களை வேலை வாய்ப்புகளுடன் இணைக்கும்",
+        features: "🔹 முக்கிய அம்சங்கள்",
+        feature1: "மண்டல மொழி சுயவிவரங்கள்: ஹிந்தி, தமிழ், பெங்காலி, மராத்தி, தெலுங்கு",
+        feature2: "வீடியோ திறன் காட்சி: குறுகிய திறன் வீடியோ பதிவேற்றம்",
+        feature3: "நியோகதாரர்களுடன் குரல் அல்லது அரட்டை",
+        feature4: "உள்ளூர் + நகர வேலை ஒருங்கிணைப்பு (கடைகள், பண்ணைகள், நகர வேலைகள்)",
+        usecases: "🧵 உதாரண பயன்பாடுகள்",
+        savita: "சவிதா: யுபியில் இருந்து தையல் வீடியோ காட்டி வேலை பெற்றார்",
+        ramesh: "ரமேஷ்: நாக்பூரில் இருந்து மரப்பணியாளர் நாற்காலி செய்யும் வீடியோ பகிர்ந்தார்",
+        why: "ஏன் கிராம வேலைகள் இணைப்பு?",
+        why1: "✅ மண்டல மொழி நட்பு",
+        why2: "✅ குறைந்த கல்வியுள்ளவர்களுக்கு வீடியோ அடிப்படையிலானது",
+        why3: "✅ கிராம + அரைநகர வேலை வாய்ப்புகள்",
+        why4: "✅ இடைநிலை இல்லாமல், சுரண்டல் இல்லாமல்",
+        ctaTitle: "🎯 இடைநிலை இல்லாமல், சுரண்டல் இல்லாமல்",
+        ctaText: "கிராமப்புற தொழிலாளர்களை நேரடியாக நியோகதாரர்களுடன் இணைக்கும்.",
+        getStarted: "தொடங்கவும்",
+        login: "உள்நுழை",
+        signup: "பதிவு செய்யவும்"
+      },
+      bn: {
+        title: "গ্রামীণ চাকরি সংযোগ",
+        tagline: "গ্রামীণ যুবকদের চাকরির সুযোগের সাথে সংযুক্ত করা",
+        features: "🔹 মূল বৈশিষ্ট্য",
+        feature1: "আঞ্চলিক ভাষার প্রোফাইল: হিন্দি, তামিল, বাংলা, মারাঠি, তেলুগু",
+        feature2: "ভিডিও দক্ষতা প্রদর্শন: ছোট দক্ষতার ভিডিও আপলোড করুন",
+        feature3: "নিয়োগকারীদের সাথে ভয়েস বা চ্যাট",
+        feature4: "স্থানীয় + শহুরে চাকরি সংযুক্তি (দোকান, খামার, শহরের চাকরি)",
+        usecases: "🧵 উদাহরণ ব্যবহার কেস",
+        savita: "সবিতা: ইউপি থেকে দর্জি সেলাই ভিডিও দেখিয়ে চাকরি পান",
+        ramesh: "রমেশ: নাগপুরের কার্পেন্টার চেয়ার তৈরির ভিডিও শেয়ার করেন",
+        why: "কেন গ্রামীণ চাকরি সংযোগ?",
+        why1: "✅ আঞ্চলিক-ভাষা বান্ধব",
+        why2: "✅ কম সাক্ষরতার জন্য ভিডিও-ভিত্তিক",
+        why3: "✅ গ্রামীণ + আধা-শহুরে কর্মসংস্থান",
+        why4: "✅ কোনো মধ্যস্থতাকারী নেই, কোনো শোষণ নেই",
+        ctaTitle: "🎯 কোনো মধ্যস্থতাকারী নেই, কোনো শোষণ নেই",
+        ctaText: "গ্রামীণ শ্রমিকদের সরাসরি নিয়োগকারীদের সাথে সংযুক্ত করা।",
+        getStarted: "শুরু করুন",
+        login: "লগইন",
+        signup: "সাইন আপ"
+      },
+      mr: {
+        title: "ग्रामीण नोकरी कनेक्ट",
+        tagline: "ग्रामीण युवकांना नोकरीच्या संधींशी जोडणे",
+        features: "🔹 मुख्य वैशिष्ट्ये",
+        feature1: "प्रादेशिक भाषा प्रोफाइल: हिंदी, तमिळ, बंगाली, मराठी, तेलुगू",
+        feature2: "व्हिडिओ कौशल्य प्रदर्शन: लहान कौशल्य व्हिडिओ अपलोड करा",
+        feature3: "नियोक्त्यांसोबत व्हॉइस किंवा चॅट",
+        feature4: "स्थानिक + शहरी नोकरी एकत्रीकरण (दुकाने, शेत, शहरातील नोकऱ्या)",
+        usecases: "🧵 उदाहरण वापर प्रकरणे",
+        savita: "सविता: यूपीमधील टेलरने शिवणकाम व्हिडिओ दाखवला आणि नोकरी मिळवली",
+        ramesh: "रमेश: नागपूरमधील सुताराने खुर्ची बनवण्याचा व्हिडिओ शेअर केला",
+        why: "का ग्रामीण नोकरी कनेक्ट?",
+        why1: "✅ प्रादेशिक-भाषा अनुकूल",
+        why2: "✅ कमी साक्षरता वापरकर्त्यांसाठी व्हिडिओ आधारित",
+        why3: "✅ ग्रामीण + अर्ध-शहरी रोजगारावर लक्ष केंद्रित",
+        why4: "✅ कोणतेही दलाल नाही, कोणतेही शोषण नाही",
+        ctaTitle: "🎯 कोणतेही दलाल नाही, कोणतेही शोषण नाही",
+        ctaText: "ग्रामीण कामगारांना थेट नियोक्त्यांशी जोडणे.",
+        getStarted: "सुरू करा",
+        login: "लॉगिन",
+        signup: "साइन अप"
+      },
+      te: {
+        title: "గ్రామీణ ఉద్యోగాలు కనెక్ట్",
+        tagline: "గ్రామీణ యువతను ఉద్యోగ అవకాశాలతో కలిపే వేదిక",
+        features: "🔹 ముఖ్య లక్షణాలు",
+        feature1: "ప్రాంతీయ భాష ప్రొఫైల్స్: హిందీ, తమిళ్, బెంగాలీ, మరాఠీ, తెలుగు",
+        feature2: "వీడియో నైపుణ్య ప్రదర్శన: చిన్న నైపుణ్య వీడియోను అప్‌లోడ్ చేయండి",
+        feature3: "ఉద్యోగదారులతో వాయిస్ లేదా చాట్",
+        feature4: "ప్రాంతీయ + పట్టణ ఉద్యోగ సమన్వయం (అంగడులు, ఫార్మ్స్, నగర ఉద్యోగాలు)",
+        usecases: "🧵 ఉదాహరణ వినియోగాలు",
+        savita: "సవిత: యూపీ నుండి టైలర్ కుట్టు వీడియో చూపించి ఉద్యోగం పొందింది",
+        ramesh: "రమేష్: నాగ్‌పూర్ నుండి కార్పెంటర్ కుర్చీ తయారీ వీడియోను పంచుకున్నాడు",
+        why: "ఎందుకు గ్రామీణ ఉద్యోగాలు కనెక్ట్?",
+        why1: "✅ ప్రాంతీయ భాషకు అనుకూలం",
+        why2: "✅ తక్కువ చదువున్నవారికి వీడియో ఆధారితం",
+        why3: "✅ గ్రామీణ + అర్బన్ ఉపాధిపై దృష్టి",
+        why4: "✅ మధ్యవర్తులు లేరు, దోపిడీ లేదు",
+        ctaTitle: "🎯 మధ్యవర్తులు లేరు, దోపిడీ లేదు",
+        ctaText: "గ్రామీణ కార్మికులను నేరుగా ఉద్యోగదారులతో కలిపే వేదిక.",
+        getStarted: "ప్రారంభించండి",
+        login: "లాగిన్",
+        signup: "సైన్ అప్"
+      }
+    };
+    function setLang(lang) {
+      const t = translations[lang] || translations.en;
+      document.querySelector('header h1').textContent = t.title;
+      document.querySelector('header p').textContent = t.tagline;
+      document.querySelector('.features h2').textContent = t.features;
+      const features = document.querySelectorAll('.features ul li');
+      features[0].textContent = t.feature1;
+      features[1].textContent = t.feature2;
+      features[2].textContent = t.feature3;
+      features[3].textContent = t.feature4;
+      document.querySelector('.use-cases h2').textContent = t.usecases;
+      document.querySelectorAll('.use-case-card')[0].querySelector('div').innerHTML = `<strong>👩‍🦱</strong> ${t.savita}`;
+      document.querySelectorAll('.use-case-card')[1].querySelector('div').innerHTML = `<strong>👨‍🦱</strong> ${t.ramesh}`;
+      document.querySelector('.innovation-title').textContent = t.why;
+      const why = document.querySelectorAll('.innovation-list span');
+      why[0].textContent = t.why1;
+      why[1].textContent = t.why2;
+      why[2].textContent = t.why3;
+      why[3].textContent = t.why4;
+      document.querySelector('.cta-section h2').textContent = t.ctaTitle;
+      document.querySelector('.cta-section p').textContent = t.ctaText;
+      document.querySelector('.cta-btn').textContent = t.getStarted;
+      document.querySelector('.login-btn').textContent = t.login;
+      document.querySelector('.signup-btn').textContent = t.signup;
+    }
+    document.getElementById('langSelect').addEventListener('change', function(e) {
+      localStorage.setItem('lang', e.target.value);
+      setLang(e.target.value);
+    });
+    // Set language from localStorage if available
+    const savedLang = localStorage.getItem('lang');
+    if (savedLang) {
+      document.getElementById('langSelect').value = savedLang;
+      setLang(savedLang);
+    } else {
+      setLang(document.getElementById('langSelect').value);
+    }
+  </script>
+  <button class="header-btn login-btn" id="loginBtn">Login</button>
+  <button class="header-btn signup-btn" id="signupBtn">Sign Up</button>
+  <script>
+    // ...existing translation script...
+    // Add working login/signup button handlers
+    document.getElementById('loginBtn').onclick = function() {
+      window.location.href = '/login';
+    };
+    document.getElementById('signupBtn').onclick = function() {
+      window.location.href = '/signup';
+    };
+  </script>
+    </div>
+  </header>
+  <style>
+    .header-actions {
+      margin-top: 1.2rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+      justify-content: center;
+      align-items: center;
+    }
+    .lang-select {
+      padding: 0.5em 1.1em;
+      border-radius: 22px;
+      border: 1px solid #fff;
+      font-size: 1rem;
+      background: #fff;
+      color: var(--primary);
+      font-family: inherit;
+      font-weight: 500;
+      outline: none;
+      box-shadow: 0 1px 4px #b2dfdb;
+      transition: border 0.2s;
+    }
+    .lang-select:focus {
+      border: 1.5px solid var(--accent);
+    }
+    .header-btn {
+      padding: 0.5em 1.4em;
+      border-radius: 22px;
+      border: none;
+      font-size: 1rem;
+      font-family: inherit;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+      margin-left: 0.1em;
+      margin-right: 0.1em;
+      box-shadow: 0 1px 4px #b2dfdb;
+    }
+    .login-btn {
+      background: #fff;
+      color: var(--primary);
+      border: 1.5px solid var(--accent);
+    }
+    .login-btn:hover, .login-btn:focus {
+      background: var(--highlight-bg);
+      color: var(--primary);
+      border-color: var(--primary);
+    }
+    .signup-btn {
+      background: var(--accent);
+      color: #fff;
+      border: 1.5px solid var(--accent);
+    }
+    .signup-btn:hover, .signup-btn:focus {
+      background: #249b92;
+      color: #fff;
+      border-color: var(--primary);
+    }
+    @media (max-width: 480px) {
+      .header-actions {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+      .lang-select, .header-btn {
+        width: 100%;
+        min-width: 0;
+        box-sizing: border-box;
+      }
+    }
+  </style>
+  <main>
+    <section class="features">
+      <h2>🔹 Key Features</h2>
+      <ul>
+        <li>Regional Language Profiles: Hindi, Tamil, Bengali, Marathi</li>
+        <li>Video Skill Showcase: Upload short skill demo video</li>
+        <li>Voice or Chat Messaging with employers</li>
+        <li>Local + Urban Job Integration (shops, farms, city jobs)</li>
+      </ul>
+    </section>
+    <section class="use-cases">
+      <h2>🧵 Example Use Cases</h2>
+      <div class="use-case-cards">
+        <div class="use-case-card">
+          <span>👩‍🦱</span>
+          <div>
+            <strong>Savita:</strong> Tailor from UP shows stitching video and gets hired
+          </div>
+        </div>
+        <div class="use-case-card">
+          <span>👨‍🦱</span>
+          <div>
+            <strong>Ramesh:</strong> Carpenter from Nagpur shares a chair-making video
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="innovation">
+      <div class="innovation-title">Why Rural Jobs Connect?</div>
+      <div class="innovation-list">
+        <span>✅ Regional-language friendly</span>
+        <span>✅ Video-based for low-literacy users</span>
+        <span>✅ Focus on rural + semi-urban employment</span>
+        <span>✅ No middlemen, no exploitation</span>
+      </div>
+    </section>
+    <section class="cta-section">
+      <h2>🎯 No Middlemen, No Exploitation</h2>
+      <p>Empowering rural workers to connect directly with employers.</p>
+      <button class="cta-btn">Get Started</button>
+    </section>
+  </main>
+  <footer>
+    © 2025 Rural Jobs Connect. All rights reserved.
+  </footer>
+</body>
+</html>
